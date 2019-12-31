@@ -7,7 +7,7 @@
       <form class="example-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="fill" class="example-full-width">
             <input matInput type="email" placeholder="Your Email" formControlName="email" required>
             <mat-error *ngIf="signupForm.controls['email'].hasError('required')">Email is required</mat-error>
             <mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">Must be valid email</mat-error>
@@ -15,7 +15,7 @@
         </div>
         <!-- type password -->
         <div class="form-group">
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="fill" class="example-full-width">
             <input matInput type="password" placeholder="Password" minlength="6" formControlName="password" required>
             <mat-error *ngIf="signupForm.get('password').hasError('required')">Password is required
             </mat-error>
@@ -25,7 +25,7 @@
         </div>
         <!-- verify password -->
         <div class="form-group">
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="fill" class="example-full-width">
             <input matInput type="password" placeholder="Re-enter password"
               formControlName="vrfy_password"
               required [errorStateMatcher]="matcher">
@@ -40,10 +40,13 @@
 
         <!-- date picker -->
         <div class="form-group">
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+          <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker" placeholder="Birthdate" formControlName="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="signupForm.get('date').hasError('required')">
+              We want to be able to greet you a happy birthday.
+            </mat-error>
           </mat-form-field>
         </div>
 
