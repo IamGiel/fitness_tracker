@@ -41,9 +41,19 @@
         <!-- date picker -->
         <div class="form-group">
           <mat-form-field appearance="fill">
-            <input matInput [matDatepicker]="picker" placeholder="Birthdate" formControlName="date">
+            <input 
+              matInput 
+              [matDatepicker]="picker" 
+              placeholder="Birthdate" 
+              formControlName="date"
+              [matDatepickerFilter]="myFilter">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker 
+              #picker 
+              color="red"
+              [startAt]="startDate"
+              >
+            </mat-datepicker>
             <mat-error *ngIf="signupForm.get('date').hasError('required')">
               We want to be able to greet you a happy birthday.
             </mat-error>

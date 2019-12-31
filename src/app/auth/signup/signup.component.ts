@@ -63,6 +63,20 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  startDate = new Date(2001, 11, 1);
+
+  myFilter = (d: Date): boolean => {
+    const day = d.getDay();
+    const year = d.getFullYear();
+    console.log(year)
+
+    // Prevent Saturday and Sunday from being selected.
+    // return day !== 0 && day !== 6;
+
+    // prevent years later than 2001
+    return year < 2002 
+  }
+
   get f() {
     // console.log(this.signupForm.controls.email)
     // console.log(this.signupForm.controls.password.value.length)
