@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       vrfy_password: ['', Validators.required],
       date: ['', Validators.required],
+      checked: [null, Validators.required],
     }, { validator: this.checkPasswords });
   }
   
